@@ -8,6 +8,7 @@ from  selenium.webdriver.common.by import By
 
 import time
 
+from selenium.webdriver.support.select import Select
 
 #"C:\Users\NCTV_User_002\Documents\chromedriver-win64\chromedriver.exe"
 service_obj = Service("/Users/NCTV_User_002/Documents/chromedriver-win64/chromedriver.exe")
@@ -32,6 +33,10 @@ driver.find_element(By.ID, "exampleCheck1").click()
 driver.find_element(By.CSS_SELECTOR, "#inlineRadio1").click()
 time.sleep(4)
 
+#Static DropDown
+dropdown = Select(driver.find_element(By.XPATH, "//select[@class='form-control']"))
+dropdown.select_by_visible_text("Female")
+
 # to scroll down the webpage
 driver.execute_script('window.scrollBy(0, 1000)')
 
@@ -41,10 +46,10 @@ driver.execute_script('window.scrollBy(0, 1000)')
 driver.find_element(By.XPATH, "//input[@value='Submit']").click()
 
 # By XPATH > Two Way Data Binding example
-driver.find_element(By.XPATH, "//input[@class='ng-untouched ng-pristine ng-valid']").send_keys(" ayaw sa")
+#driver.find_element(By.XPATH, "//input[@class='ng-untouched ng-pristine ng-valid']").send_keys(" ayaw sa")
 
 # Clear but specified the value = (//tagname[@attribute='value'])[indexes]
-driver.find_element(By.CSS_SELECTOR, "(//input[@type='text'])[3]").clear()
+#driver.find_element(By.CSS_SELECTOR, "(//input[@type='text'])[3]").clear()
 time.sleep(5)
 
 
